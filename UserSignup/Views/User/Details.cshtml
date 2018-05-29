@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Details";
+}
+
+@model UserSignup.Models.User
+<h2>Details</h2>
+
+<table>
+    <tr>
+        <td>Name: @Model.Username</td>
+    </tr>
+    <tr>
+        <td>Email: @Model.Email</td>
+    </tr>
+    <tr>
+        <td>Date created: @Model.CreateDate</td>
+    </tr>
+    <tr>
+        <td>Favorite color: @Model.FavColor</td>
+    </tr>
+</table>

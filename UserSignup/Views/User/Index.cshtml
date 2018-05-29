@@ -1,4 +1,29 @@
-﻿@page
-@model IndexModel
-@{
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model UserSignup.Models.User
+
+<h2>Index</h2>
+
+@if (String.IsNullOrEmpty(Model.Username))
+{
+    <p>Please <a asp-area="" asp-controller="User" asp-action="Add">Sign up</a>.</p>
+}
+else
+{
+    <p>Welcome, @Model.Username!</p>
+    <p>Hope you're having a @Model.FavColor</p>
+}
+
+@foreach (User user in UserData.GetAll())
+{
+    <table>
+        <tr>
+            <td>
+                <a href="/User/Details?id=$@user.UserId">@user.Username</a>
+            </td>
+        </tr>
+    </table>
+
 }

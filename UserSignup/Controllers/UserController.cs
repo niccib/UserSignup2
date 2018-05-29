@@ -11,17 +11,24 @@ namespace UserSignup.Controllers
 {
     public class UserController : Controller
     {
+        private static UserData userdata;
+
+        static UserController()
+        {
+            userdata = userdata.GetInstance();
+        }
+
         public IActionResult Index(User user)
         {
-
-            List<User> user_list = UserData.GetUsers();
-
-            if (user == null) user = new User();
-            return View(user_list);
-
-            //else {
-            //    return View(user)
-            //}
+            if (user == null) user = new User
+            {
+                Username = "",
+                Password = "",
+                Email = "",
+                FavColor = ""
+            };
+            //List<User> users = UserData.GetAll();
+            return View(user);
         }
 
         [HttpGet]
